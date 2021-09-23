@@ -1,0 +1,31 @@
+﻿@model BaseViewModel;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <partial name="_PageHead.cshtml" />
+    <partial name="_PageScripts.cshtml"/>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+    <div id="wrapper" class="wrapper">
+        <partial name="_PageNavbar.cshtml" />
+        <partial name="_PageSidebar.cshtml" />
+
+        <div class="content-wrapper">
+            <section class="content-header">
+                @RenderSection("ContentHeader", required: false)
+            </section>
+            <section class="content">
+                @RenderBody()
+            </section>
+        </div>
+
+        <partial name="_PageFooter.cshtml"/>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

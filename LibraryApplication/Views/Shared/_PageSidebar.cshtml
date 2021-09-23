@@ -1,0 +1,44 @@
+﻿<aside id="sidebar" class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="/" class="brand-link logo-switch">
+        <img src="~/img/logo-xs.png" alt="Alternate Text" class="brand-image-xl logo-xs" />
+        <img src="~/img/logo-xl.png" alt="Alternate Text" class="brand-image-xs logo-xl" />
+    </a>
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview"
+                role="menu">
+
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link @(Model.ActiveSidebar == _SidebarMenu.Dashboard ? "active" : string.Empty)">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                
+                <li class="nav-header">
+                    Book Management
+                </li>
+
+                <li class="nav-item has-treeview @(Model.ActiveSidebarL1 == _SidebarMenu.Book ? "menu-open" : string.Empty)">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-book-open nav-icon"></i>
+                        <p>
+                            Books
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a class="nav-link @(Model.ActiveSidebar == _SidebarMenu.BookList ? "active" : string.Empty)" asp-controller="Book" asp-action="Index">
+                                <i class="fas fa-book nav-icon"></i>
+                                <p>Book Lists</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
