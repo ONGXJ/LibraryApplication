@@ -118,32 +118,31 @@ namespace LibraryApplication.Controllers
             return GetView(nameof(Index));
         }
 
-        [HttpGet]
-        public IActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //[HttpGet]
+        //public IActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var bookInDb = _db.Books.FirstOrDefault(m => m.Id == id);
+        //    var bookInDb = _db.Books.FirstOrDefault(m => m.Id == id);
 
-            if (bookInDb == null)
-            {
-                return NotFound();
-            }
+        //    if (bookInDb == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var bookDetails = new Book();
-            bookDetails.Id = bookInDb.Id;
-            bookDetails.Name = bookInDb.Name;
-            bookDetails.Code = bookInDb.Code;
+        //    var bookDetails = new Book();
+        //    bookDetails.Id = bookInDb.Id;
+        //    bookDetails.Name = bookInDb.Name;
+        //    bookDetails.Code = bookInDb.Code;
 
-            return GetView(bookDetails);
-        }
+        //    return GetView(bookDetails);
+        //}
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             try
             {
